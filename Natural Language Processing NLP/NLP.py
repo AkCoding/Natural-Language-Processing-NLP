@@ -54,23 +54,23 @@ print(combine_df.head())
 
 
 
-# Remove stop words
-# stopwords = nltk.corpus.stopwords.word('english')
-# stopwords[0:10]
-# def remove_stopwords(txt_tokenized):
-#     txt_clean = [word for word in txt_tokenized if word not in stopwords]
-#     return txt_clean
-# combine_df['msg_no_sw'] = combine_df['msg_clean_takenized'].apply(lambda  x: remove_stopwords(x))
-# print(combine_df.head())
+#Remove stop words
+stopwords = nltk.corpus.stopwords.word('english')
+stopwords[0:10]
+def remove_stopwords(txt_tokenized):
+    txt_clean = [word for word in txt_tokenized if word not in stopwords]
+    return txt_clean
+combine_df['msg_no_sw'] = combine_df['msg_clean_takenized'].apply(lambda  x: remove_stopwords(x))
+print(combine_df.head())
 
-# Stemming
-# def stemming(tokenized_text):
-#     ps = PorterStemmer()
-#     text = [ps.stem(word) for word in tokenized_text]
-#     return text
-#
-# combine_df['msg_stemmed'] = combine_df['msg_no_sw'].apply(lambda x: stemming(x))
-# combine_df.head()
+#Stemming
+def stemming(tokenized_text):
+    ps = PorterStemmer()
+    text = [ps.stem(word) for word in tokenized_text]
+    return text
+
+combine_df['msg_stemmed'] = combine_df['msg_no_sw'].apply(lambda x: stemming(x))
+combine_df.head()
 
 
 # Lemmatization
